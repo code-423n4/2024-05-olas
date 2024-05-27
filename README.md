@@ -1,19 +1,15 @@
 # Olas audit details
-- Total Prize Pool: $87500 in USDC
-  - HM awards: $69000 in USDC
-  - (remove this line if there is no Analysis pool) Analysis awards: XXX XXX USDC (Notion: Analysis pool)
-  - QA awards: $3000 in USDC
-  - (remove this line if there is no Bot race) Bot Race awards: XXX XXX USDC (Notion: Bot Race pool)
- 
-  - Judge awards: $9000 in USDC
-  - Lookout awards: XXX XXX USDC (Notion: Sum of Pre-sort fee + Pre-sort early bonus)
+- Total Prize Pool: $75,500 in USDC
+  - HM awards: $57,000 in USDC
+  - QA awards: $3,000 in USDC
+  - Judge awards: $9,000 in USDC
+  - Validator awards: $6,000 in USDC
   - Scout awards: $500 in USDC
-  - (this line can be removed if there is no mitigation) Mitigation Review: XXX XXX USDC (*Opportunity goes to top 3 backstage wardens based on placement in this audit who RSVP.*)
 - Join [C4 Discord](https://discord.gg/code4rena) to register
 - Submit findings [using the C4 form](https://code4rena.com/contests/2024-05-olas/submit)
 - [Read our guidelines for more details](https://docs.code4rena.com/roles/wardens)
-- Starts May 20, 2024 20:00 UTC
-- Ends June 10, 2024 20:00 UTC
+- Starts May 28, 2024 20:00 UTC
+- Ends June 18, 2024 20:00 UTC
 
 ## Automated Findings / Publicly Known Issues
 
