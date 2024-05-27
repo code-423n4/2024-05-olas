@@ -1,58 +1,3 @@
-# ✨ So you want to run an audit
-
-This `README.md` contains a set of checklists for our audit collaboration.
-
-Your audit will use two repos: 
-- **an _audit_ repo** (this one), which is used for scoping your audit and for providing information to wardens
-- **a _findings_ repo**, where issues are submitted (shared with you after the audit) 
-
-Ultimately, when we launch the audit, this repo will be made public and will contain the smart contracts to be reviewed and all the information needed for audit participants. The findings repo will be made public after the audit report is published and your team has mitigated the identified issues.
-
-Some of the checklists in this doc are for **C4 (🐺)** and some of them are for **you as the audit sponsor (⭐️)**.
-
----
-
-# Audit setup
-
-## 🐺 C4: Set up repos
-- [ ] Create a new private repo named `YYYY-MM-sponsorname` using this repo as a template.
-- [ ] Rename this repo to reflect audit date (if applicable)
-- [ ] Rename audit H1 below
-- [ ] Update pot sizes
-  - [ ] Remove the "Bot race findings opt out" section if there's no bot race.
-- [ ] Fill in start and end times in audit bullets below
-- [ ] Add link to submission form in audit details below
-- [ ] Add the information from the scoping form to the "Scoping Details" section at the bottom of this readme.
-- [ ] Add matching info to the Code4rena site
-- [ ] Add sponsor to this private repo with 'maintain' level access.
-- [ ] Send the sponsor contact the url for this repo to follow the instructions below and add contracts here. 
-- [ ] Delete this checklist.
-
-# Repo setup
-
-## ⭐️ Sponsor: Add code to this repo
-
-- [ ] Create a PR to this repo with the below changes:
-- [ ] Confirm that this repo is a self-contained repository with working commands that will build (at least) all in-scope contracts, and commands that will run tests producing gas reports for the relevant contracts.
-- [ ] Please have final versions of contracts and documentation added/updated in this repo **no less than 48 business hours prior to audit start time.**
-- [ ] Be prepared for a 🚨code freeze🚨 for the duration of the audit — important because it establishes a level playing field. We want to ensure everyone's looking at the same code, no matter when they look during the audit. (Note: this includes your own repo, since a PR can leak alpha to our wardens!)
-
-## ⭐️ Sponsor: Repo checklist
-
-- [ ] Modify the [Overview](#overview) section of this `README.md` file. Describe how your code is supposed to work with links to any relevent documentation and any other criteria/details that the auditors should keep in mind when reviewing. (Here are two well-constructed examples: [Ajna Protocol](https://github.com/code-423n4/2023-05-ajna) and [Maia DAO Ecosystem](https://github.com/code-423n4/2023-05-maia))
-- [ ] Review the Gas award pool amount, if applicable. This can be adjusted up or down, based on your preference - just flag it for Code4rena staff so we can update the pool totals across all comms channels.
-- [ ] Optional: pre-record a high-level overview of your protocol (not just specific smart contract functions). This saves wardens a lot of time wading through documentation.
-- [ ] [This checklist in Notion](https://code4rena.notion.site/Key-info-for-Code4rena-sponsors-f60764c4c4574bbf8e7a6dbd72cc49b4#0cafa01e6201462e9f78677a39e09746) provides some best practices for Code4rena audit repos.
-
-## ⭐️ Sponsor: Final touches
-- [ ] Review and confirm the pull request created by the Scout (technical reviewer) who was assigned to your contest. *Note: any files not listed as "in scope" will be considered out of scope for the purposes of judging, even if the file will be part of the deployed contracts.*
-- [ ] Check that images and other files used in this README have been uploaded to the repo as a file and then linked in the README using absolute path (e.g. `https://github.com/code-423n4/yourrepo-url/filepath.png`)
-- [ ] Ensure that *all* links and image/file paths in this README use absolute paths, not relative paths
-- [ ] Check that all README information is in markdown format (HTML does not render on Code4rena.com)
-- [ ] Delete this checklist and all text above the line below when you're ready.
-
----
-
 # Olas audit details
 - Total Prize Pool: $87500 in USDC
   - HM awards: $69000 in USDC
@@ -74,10 +19,350 @@ Some of the checklists in this doc are for **C4 (🐺)** and some of them are fo
 
 The 4naly3er report can be found [here](https://github.com/code-423n4/2024-05-olas/blob/main/4naly3er-report.md).
 
-
-
 _Note for C4 wardens: Anything included in this `Automated Findings / Publicly Known Issues` section is considered a publicly known issue and is ineligible for awards._
-## 🐺 C4: Begin Gist paste here (and delete this line)
+
+The known issues (some of them intended by design) that are not in scope for this audit are outlined in the following:
+- https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs/Vulnerabilities_list_governance.pdf
+- https://github.com/code-423n4/2024-05-olas/blob/main/registries/docs/Vulnerabilities_list_registries.pdf
+- https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/docs/Vulnerabilities_list_tokenomics.pdf
+
+
+Additionally, the following are not in scope for this audit.
+
+- All vulnerabilities mentioned in [governance audits folder](https://github.com/code-423n4/2024-05-olas/blob/main/governance/audits), [registies audits folder](https://github.com/code-423n4/2024-05-olas/blob/main/registries/audits), [tokenomics audits folder](https://github.com/code-423n4/2024-05-olas/blob/tokenomics/registries/audits)
+- All vulnerabilities mentioned in [governance docs folder](https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs), [registies docs folder](https://github.com/code-423n4/2024-05-olas/blob/main/registries/docs), [tokenomics docs folder](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/docs)
+- All vulnerabilities mentioned in [governance test folder](https://github.com/code-423n4/2024-05-olas/blob/main/governance/test), [registies test folder](https://github.com/code-423n4/2024-05-olas/blob/main/registries/test), [tokenomics test folder](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/test)
+- All vulnerabilities mentioned in the comments on the contracts code [governance contracts folder](https://github.com/code-423n4/2024-05-olas/blob/main/governance/contracts), [registies contracts folder](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts), [tokenomics contracts folder](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts)
+- All vulnerabilities found in the inherited source code from [OpenZeppelin](https://github.com/OpenZeppelin/openzeppelin-contracts) and [Solmate](https://github.com/transmissions11/solmate)
+- All vulnerabilities found in the inherited source code for the bridging contracts.
+- All vulnerabilities found in code based on or inspired by [Maple Finance](https://github.com/maple-labs), [Curve DAO](https://github.com/curvefi/curve-dao-contracts), [Uniswap Lab](https://github.com/Uniswap/v2-core), [PaulRBerg](https://github.com/paulrberg/prb-math), [Jeiwan](https://github.com/Jeiwan/zuniswapv2), [Safe Ecosystem](https://github.com/safe-global/safe-contracts) and that are already reported to one of those projects.
+
+
+# Overview
+
+This audit is focused on smart contracts related to Olas staking mechanism. Olas on-chain protocol can be divided in three main parts: governance, registries, and tokenomics. Here is an overview of these parts. 
+
+The **governance** is designed to assume various control points to steer the Olas protocol. The governance token, veOLAS is the virtualized representation of OLAS locked and used a similar approach to [veCRV](https://curve.readthedocs.io/dao-vecrv.html), where votes are weighted depending on the time OLAS is locked other than the amount of locked OLAS.
+
+The VoteWeighting contract enables Olas DAO members (via veOLAS) to vote on staking programs, assigning weights according to their preferences. It adopts a model similar to the [Curve Gauge Controller](https://curve.readthedocs.io/dao-gauges.html#dao-gauges-controller), maintains a list of gauges and their associated weights.  Modifications from the original Curve Gauge Controller include granting anyone the ability to add staking contracts by removing ownership control on this functionality, and eliminating additional categorization by contract type. For more details on VotingWeight, see [Olas staking smart contracts](https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs/StakingSmartContracts.pdf) and [Olas staking whitepaper](https://staking.olas.network/poaa-whitepaper.pdf).
+
+The list of the governance contracts in scope for the current audit can be found in the Scope section below.
+
+**Registries** allow developer of code in form of agents, components, or services to register and manage their code on-chain. The code existing off-chain will be uniquely represented on-chain by means of NFTs. A summary of registries is provided [here](https://github.com/code-423n4/2024-05-olas/blob/main/registries/docs/AgentServicesFunctionality.pdf). The registry contracts related to [Olas staking](https://staking.olas.network/poaa-whitepaper.pdf) collectively form a robust system for managing staking services within an Olas ecosystem. The StakingFactory serves as a gateway for deploying staking contracts, offering flexibility through customizable verification logic. Staking contracts, designed for compatibility, provide standardized functionalities while allowing variation in activity checks tailored to specific use cases. The StakingActivityCheck contract optimistically ensures that stakers meet predefined activity criteria, contributing to the fair distribution of rewards (see [Olas staking smart contracts](https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs/StakingSmartContracts.pdf) for more details).
+
+The list of the registries contracts in scope for the current audit can be found in the Scope section below.
+
+The **tokenomics** provides the following pimitives: Staking, developer rewards, and bonding (cf. [Olas tokenomics paper](https://www.autonolas.network/documents/whitepaper/Autonolas_Tokenomics_Core_Technical_Document.pdf) and [Olas staking whitepaper](https://staking.olas.network/poaa-whitepaper.pdf) for more details). 
+
+Tokenomics contracts related to [Olas staking](https://staking.olas.network/poaa-whitepaper.pdf) introduce a robust and decentralized framework for allocating OLAS emissions to staking programs beyond the boundaries of Ethereum to
+various networks such as Gnosis, Polygon, Arbitrum, Solana, and more. More details can be found in [Olas staking smart contracts](https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs/StakingSmartContracts.pdf).
+
+## Links
+
+- **Previous audits:**  
+  - https://github.com/code-423n4/governance/blob/main/governance/audits  
+  - https://github.com/code-423n4/registries/blob/main/registries/audits  
+  - https://github.com/code-423n4/tokenomics/blob/main/tokemomics/audits 
+- **Documentation:**
+  - [Olas staking whitepaper](https://staking.olas.network/poaa-whitepaper.pdf)
+  - [Olas staking smart contracts](https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs/StakingSmartContracts.pdf).
+  - [Autonolas whitepaper](https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf) 
+  The following are relevant for governance related contracts: 
+  - [Summary of governance model](https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs/Governance_process.pdf) 
+  - [Cross-chain governance design](https://github.com/code-423n4/2024-05-olas/blob/main/governance/docs/governace_bridge.pdf)
+  The following are relevant for registries related contracts: 
+  - [Summary of registries design](https://github.com/code-423n4/2024-05-olas/blob/main/registries/docs/AgentServicesFunctionality.pdf) 
+  - [Definitions and data structures](https://github.com/code-423n4/2024-05-olas/blob/main/registries/docs/definitions.md) 
+  The following are relevant for tokenomics related contract:
+  - [Summary of tokenomics model](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/docs/Autonolas_tokenomics_audit.pdf) 
+  - [Autonolas tokenomics paper](https://www.autonolas.network/documents/whitepaper/Autonolas_Tokenomics_Core_Technical_Document.pdf)
+- **Website:** https://olas.network/  
+- **Twitter:**  @autonolas  
+- **Discord:**  https://discord.gg/Dh6UqUuV 
+
+---
+
+# Scope
+
+### Files in scope
+- ✅ This should be completed using the `metrics.md` file
+- ✅ Last row of the table should be Total: SLOC
+- ✅ SCOUTS: Have the sponsor review and and confirm in text the details in the section titled "Scoping Q amp; A"
+
+*For sponsors that don't use the scoping tool: list all files in scope in the table below (along with hyperlinks) -- and feel free to add notes to emphasize areas of focus.*
+
+# Scope
+
+## Files in scope
+
+| Contract                                                                                                                                                                        | SLOC        | Purpose                                                                                                                                            | Libraries used                                                                                     |  
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------|
+| Governance contracts (1)                                                                                                                                                        |             |                                                                                                                                                    |                                                                                                    |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                        |
+| [governance/contracts/VoteWeighting.sol](https://github.com/code-423n4/2024-05-olas/blob/main/governance/contracts/VoteWeighting.sol)                                           | 427         | The contract enables Olas DAO members (via veOLAS) to vote on staking programs, assigning weights according to their preferences.                  |                                                                                                    |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                        |
+| Registries contracts (8)                                                                                                                                                        |             |                                                                                                                                                    |                                                                                                    |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                        |
+| [registries/contracts/staking/StakingBase.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/staking/StakingBase.sol)                               | 518         | Base abstract smart contract for staking a service by its owner                                                                                    | [`solmate/*`](https://github.com/transmissions11/solmate)                                         |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                        |
+| [registries/contracts/staking/StakingFactory.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/staking/StakingFactory.sol)                         | 159         | Smart contract for staking factory                                                                                                                 |                                  |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [registries/contracts/staking/StakingNativeToken.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/staking/StakingNativeToken.sol)                 | 22          | Smart contract for staking a service secured with the native network token                                                                         |                                      |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [registries/contracts/staking/StakingProxy.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/staking/StakingProxy.sol)                             | 30          | Smart contract for staking proxy                                                                                                                   |                                  |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [registries/contracts/staking/StakingToken.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/staking/StakingToken.sol)                             | 58          | Smart contract for staking a service secured whit an ERC20 token                                                                                   |                                        |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [registries/contracts/staking/StakingVerifier.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/staking/StakingVerifier.sol)                       | 133         | Smart contract for service staking contracts verification                                                                                          |                                |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [registries/contracts/staking/StakingActivityChecker.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/staking/StakingActivityChecker.sol)         | 28          | Smart contract for performing a service staking activity check                                                                                     |                                       |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [registries/contracts/utils/SafeTransferLib.sol](https://github.com/code-423n4/2024-05-olas/blob/main/registries/contracts/utils/SafeTransferLib.sol)                           | 41          | This contract provides a library with safe methods for transferring ERC-20 tokens                                                                  |                                 |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| Tokenomics contracts (16)                                                                                                                                                       |             |                                                                                                                                                    |                                                                                                   |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [tokenomics/contracts/staking/DefaultDepositProcessorL1.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/DefaultDepositProcessorL1.sol)   | 112         | Smart contract for sending tokens and data via arbitrary bridge from L1 to L2 and processing data received from L2                                 |         |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/DefaultTargetDispenserL2.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/DefaultTargetDispenserL2.sol)     | 253         | Smart contract for processing tokens and data received on L2, and data sent back to L1                                                             |       |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [tokenomics/contracts/staking/EthereumDepositProcessor.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/EthereumDepositProcessor.sol)     | 87          | Smart contract for processing tokens and data on L1                                                                                                |       |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [tokenomics/contracts/staking/ArbitrumDepositProcessorL1.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/ArbitrumDepositProcessorL1.sol) | 98          | Smart contract for sending tokens and data via Arbitrum bridge from L1 to L2 and processing data received from L2                                  |                                                                                                       |
+| -----------                                                                                                                                                                     | ----------- | ------------------------------------------------------------------------------------------------------------------                                 |-------------------------------------------------------------------------------------------------------|
+| [tokenomics/contracts/staking/ArbitrumDepositProcessorL1.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/ArbitrumDepositProcessorL1.sol) | 33          | Smart contract for processing tokens and data received on Arbitrum L2, and data sent back to L1                                                    |                                                                                                       |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                           |
+| [tokenomics/contracts/staking/GnosisDepositProcessorL1.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/GnosisDepositProcessorL1.sol)     | 48          | Smart contract for sending tokens and data via Gnosis bridge from L1 to L2 and processing data received from L2.                                   |                                                                                                       |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/GnosisTargetDispenserL2.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/GnosisTargetDispenserL2.sol)       | 50          | Smart contract for processing tokens and data received on Gnosis L2, and data sent back to L1                                                      |                                                                                                       |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/OptimismDepositProcessorL1.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/OptimismDepositProcessorL1.sol) | 69          | Smart contract for sending tokens and data via Optimism bridge from L1 to L2 and processing data received from L2.                                 |                                                                                                       |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/OptimismTargetDispenserL2.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/OptimismTargetDispenserL2.sol)   | 45          | Smart contract for processing tokens and data received on Optimism L2, and data sent back to L1                                                    |                                                                                                       |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/PolygonDepositProcessorL1.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/PolygonDepositProcessorL1.sol)   | 58          | Smart contract for sending tokens and data via Polygon bridge from L1 to L2 and processing data received from L2                                   | [`fx-portal/*`](https://github.com/0xPolygon/fx-portal/tree/296ac8d41579f98d3a4dfb6d41737fae272a30ba) |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/PolygonTargetDispenserL2.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/OptimismTargetDispenserL2.sol)    | 34          | Smart contract for processing tokens and data received on Polygon L2, and data sent back to L1                                                     | [`fx-portal/*`](https://github.com/0xPolygon/fx-portal/tree/296ac8d41579f98d3a4dfb6d41737fae272a30ba)                                                                                                     |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/WormholeDepositProcessorL1.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/WormholeDepositProcessorL1.sol) | 78          | Smart contract for sending tokens and data via Wormhole bridge from L1 to L2 and processing data received from L2                                  | [`@wormhole-solidity-sdk/*`](https://github.com/wormhole-foundation/wormhole-solidity-sdk)            |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/staking/WormholeTargetDispenserL2.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/staking/WormholeTargetDispenserL2.sol)   | 88          | Smart contract for processing tokens and data received via Wormhole on L2, and data sent back to L1                                                | [`@wormhole-solidity-sdk/*`](https://github.com/wormhole-foundation/wormhole-solidity-sdk)            |
+| -----------                                                                                                                                                                     
+| [tokenomics/contracts/Tokenomics.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/Tokenomics.sol)                                                 | 733         | Smart contract implementing the tokenomics model for code incentives, discount factor bonding mechanism regulations, and staking points.           |                               [`@prb-math/*`]](https://github.com/PaulRBerg/prb-math)                                                                     |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [tokenomics/contracts/TokenomicsConstants.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/TokenomicsConstants.sol)                               | 60          | Smart contract with tokenomics constants for annual inflation supplies                                                                             | |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | ----------- |
+| [tokenomics/contracts/Dispenser.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/Dispenser.sol)                                                   | 644         | Smart contract for distributing dev rewards and claim staking emissions                                                                            |                                                                                                   |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| Tokenomics interfaces (3)                                                                                                                                                       |             |                                                                                                                                                    |                                                                                                   |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [tokenomics/contracts/interfaces/IDonatorBlacklist.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/interfaces/IDonatorBlacklist.sol])            | 4           | DonatorBlacklist interface                                                                                                                         |                                                                                                   |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       |
+| [tokenomics/contracts/interfaces/IErrorsTokenomics.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/interfaces/IErrorsTokenomics.sol)             | 31          | Errors interface                                                                                                                                   |                                                                                                   |
+| -----------                                                                                                                                                                     | ----------- | -----------                                                                                                                                        | -----------                                                                                       | 
+| [tokenomics/contracts/interfaces/IBridgeErrors.sol](https://github.com/code-423n4/2024-05-olas/blob/main/tokenomics/contracts/interfaces/IBridgeErrors.sol)                     | 23          | Bridge Errors interface                                                                                                                            |                                                                                                   |
+| -----------
+
+
+## Scoping Q &amp; A
+
+### General questions
+### Are there any ERC20's in scope?: Yes
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
+
+Any (all possible ERC20s)
+
+
+### Are there any ERC777's in scope?: No
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
 
 
 
+### Are there any ERC721's in scope?: Yes
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
+
+Some contracts in scope interacts with Solmante ERC721, however such ERC721 contract is not scope. 
+
+### Are there any ERC1155's in scope?: No
+
+✅ SCOUTS: If the answer above 👆 is "Yes", please add the tokens below 👇 to the table. Otherwise, update the column with "None".
+
+
+
+✅ SCOUTS: Once done populating the table below, please remove all the Q/A data above.
+
+| Question                                | Answer                       |
+| --------------------------------------- | ---------------------------- |
+| ERC20 used by the protocol              |       🖊️             |
+| Test coverage                           | ✅ SCOUTS: Please populate this after running the test coverage command                          |
+| ERC721 used  by the protocol            |            🖊️              |
+| ERC777 used by the protocol             |           🖊️                |
+| ERC1155 used by the protocol            |              🖊️            |
+| Chains the protocol will be deployed on | Ethereum,Arbitrum,Base,Optimism,Polygon,OtherGnosis, Celo, Solana
+
+  |
+
+### ERC20 token behaviors in scope
+
+| Question                                                                                                                                                   | Answer |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------------- | ------ |
+| [Missing return values](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#missing-return-values)                                                      |   Yes  |
+| [Fee on transfer](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#fee-on-transfer)                                                                  |  Yes  |
+| [Balance changes outside of transfers](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#balance-modifications-outside-of-transfers-rebasingairdrops) | Yes    |
+| [Upgradeability](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#upgradable-tokens)                                                                 |   Yes  |
+| [Flash minting](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#flash-mintable-tokens)                                                              | Yes    |
+| [Pausability](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#pausable-tokens)                                                                      | Yes    |
+| [Approval race protections](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#approval-race-protections)                                              | Yes    |
+| [Revert on approval to zero address](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-approval-to-zero-address)                            | Yes    |
+| [Revert on zero value approvals](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-zero-value-approvals)                                    | Yes    |
+| [Revert on zero value transfers](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-zero-value-transfers)                                    | Yes    |
+| [Revert on transfer to the zero address](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-transfer-to-the-zero-address)                    | Yes    |
+| [Revert on large approvals and/or transfers](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-large-approvals--transfers)                  | Yes    |
+| [Doesn't revert on failure](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#no-revert-on-failure)                                                   |  Yes   |
+| [Multiple token addresses](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#revert-on-zero-value-transfers)                                          | Yes    |
+| [Low decimals ( < 6)](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#low-decimals)                                                                 |   Yes  |
+| [High decimals ( > 18)](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#high-decimals)                                                              | Yes    |
+| [Blocklists](https://github.com/d-xo/weird-erc20?tab=readme-ov-file#tokens-with-blocklists)                                                                | Yes    |
+
+### External integrations (e.g., Uniswap) behavior in scope:
+
+
+| Question                                                  | Answer |
+| --------------------------------------------------------- | ------ |
+| Enabling/disabling fees (e.g. Blur disables/enables fees) | No   |
+| Pausability (e.g. Uniswap pool gets paused)               |  No   |
+| Upgradeability (e.g. Uniswap gets upgraded)               |   No  |
+
+
+### EIP compliance checklist
+N/A
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+| Question                                | Answer                       |
+| --------------------------------------- | ---------------------------- |
+| src/Token.sol                           | ERC20, ERC721                |
+| src/NFT.sol                             | ERC721                       |
+
+
+# Additional context
+
+## Main invariants
+
+Here some examples.
+
+1. Only DAO members can cast their vote on votingWeigh 
+2. Only executed DAO vote allow to sync information form L1 to L2 and vice-versa
+3. In the contract in scope, only dispenser contracts has the manager rights to mint OLAS via Treasury
+4. OLAS token transfer can happen only from L1 to L2 
+
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## Attack ideas (where to focus for bugs)
+Here some examples.
+1. Issues arising from cross-chain interactions
+2. Issues arising from incorrect tokenomics calculation
+3. Minting that exceeds the global inflation curve
+4. Attack to distribute more rewards than expected
+5. Issues arising from ability to abuse staking factory contracts
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## All trusted roles in the protocol
+
+- DAO members decisions are always assumed to be honest
+- DAO executed vote are always assumed to be honest
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+| Role                                | Description                       |
+| --------------------------------------- | ---------------------------- |
+| Owner                          | Has superpowers                |
+| Administrator                             | Can change fees                       |
+
+## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
+
+Olas staking is a novel staking mechanism that can spawn desirable autonomous AI agent economies in crypto and beyond. The smart contracts in scope of this audit are essential to enable Olas staking. Details on Olas staking can be found in https://staking.olas.network/poaa-whitepaper.pdf. 
+
+A brief overview of the tokenomics model can be found here https://github.com/valory-xyz/autonolas-tokenomics/blob/pre-c4a/docs/Autonolas_tokenomics_audit.pdf. For more details, see the tokenomics paper  https://www.autonolas.network/documents/whitepaper/Autonolas_Tokenomics_Core_Technical_Document.pdf. Details on
+
+An overview of the governance process can be found here https://github.com/valory-xyz/autonolas-governance/blob/pre-c4a/docs/Governance_process.pdf. 
+
+A brief overview of registries can be found here https://github.com/valory-xyz/autonolas-registries/blob/pre-c4a/docs/AgentServicesFunctionality.pdf . Here, the protocol withepaper https://www.autonolas.network/documents/whitepaper/Whitepaper%20v1.0.pdf.  
+
+
+
+✅ SCOUTS: Please format the response above 👆 so its not a wall of text and its readable.
+
+## Running tests
+
+## 
+This repository will follows the standard [`Hardhat`](https://hardhat.org/tutorial/) development process.
+- The code is written on Solidity starting from version `0.8.18`.
+- The standard versions of Node.js along with Yarn are required to proceed further (confirmed to work with Yarn `1.22.19` and npm `10.1.0` and node `v18.6.0`);
+- [`Foundry`](https://book.getfoundry.sh/) is required to run the foundry tests.
+
+### Install the dependencies
+The project has submodules to get the dependencies. Make sure you run `git clone --recursive` or init the submodules yourself.
+The dependency list is managed by the `package.json` file, and the setup parameters are stored in the `hardhat.config.js` file.
+Simply run the following command to install the project:
+```
+yarn install
+```
+
+### Core components
+The contracts, deploy scripts, regular scripts and tests are located in the following folders respectively:
+```
+contracts
+scripts
+test
+```
+
+### Compile the code and run
+Compile the code:
+```
+npm run compile
+```
+Run tests with Hardhat:
+```
+npx hardhat test
+```
+Run tests with Foundry:
+```
+forge test --hh -vv
+```
+
+Run tests coverage
+```
+npx hardhat coverage
+```
+
+
+✅ SCOUTS: Please format the response above 👆 using the template below👇
+
+```bash
+git clone https://github.com/code-423n4/2023-08-arbitrum
+git submodule update --init --recursive
+cd governance
+foundryup
+make install
+make build
+make sc-election-test
+```
+To run code coverage
+```bash
+make coverage
+```
+To run gas benchmarks
+```bash
+make gas
+```
+
+✅ SCOUTS: Add a screenshot of your terminal showing the gas report
+✅ SCOUTS: Add a screenshot of your terminal showing the test coverage
+
+## Miscellaneous
+Employees of [SPONSOR NAME] and employees' family members are ineligible to participate in this audit.
