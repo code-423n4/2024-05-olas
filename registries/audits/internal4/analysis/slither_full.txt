@@ -1,0 +1,84 @@
+
+Notes: false positive
+ServiceStakingBase.checkpoint().finalEligibleServiceRewards (ServiceStakingBase-flatten.sol#896) is a local variable never initialized
+ServiceStakingBase.checkpoint().finalEligibleServiceIds (ServiceStakingBase-flatten.sol#895) is a local variable never initialized
+ServiceStakingBase.unstake(uint256).idx (ServiceStakingBase-flatten.sol#1029) is a local variable never initialized
+ServiceStakingBase._evict(uint256[],uint256[],uint256).sCounter (ServiceStakingBase-flatten.sol#834) is a local variable never initialized
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#uninitialized-local-variables
+
+Notes: false positive
+INFO:Detectors:
+ServiceStakingBase unstake parameter from is not related to msg.sender IService(serviceRegistry).safeTransferFrom(address(this),msg.sender,serviceId) (ServiceStakingBase-flatten.sol#1059)
+Reference: https://ventral.digital/posts/2022/8/18/sznsdaos-bountyboard-unauthorized-transferfrom-vulnerability
+
+Notes: false positive
+INFO:Detectors:
+Reentrancy in ServiceStakingBase.stake(uint256) (ServiceStakingBase-flatten.sol#628-706):
+	External calls:
+	- IService(serviceRegistry).safeTransferFrom(msg.sender,address(this),serviceId) (ServiceStakingBase-flatten.sol#703)
+	Event emitted after the call(s):
+	- ServiceStaked(epochCounter,serviceId,msg.sender,service.multisig,nonces) (ServiceStakingBase-flatten.sol#705)
+Reentrancy in ServiceStakingBase.unstake(uint256) (ServiceStakingBase-flatten.sol#1001-1067):
+	External calls:
+	- IService(serviceRegistry).safeTransferFrom(address(this),msg.sender,serviceId) (ServiceStakingBase-flatten.sol#1059)
+	Event emitted after the call(s):
+	- ServiceUnstaked(epochCounter,serviceId,msg.sender,multisig,nonces,reward) (ServiceStakingBase-flatten.sol#1066)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#reentrancy-vulnerabilities-3
+
+Notes: false positive
+INFO:Detectors:
+ServiceStakingBase._isRatioPass(uint256[],uint256[],uint256) (ServiceStakingBase-flatten.sol#725-737) uses timestamp for comparisons
+	Dangerous comparisons:
+	- ts > 0 && curNonces[0] > lastNonces[0] (ServiceStakingBase-flatten.sol#733)
+	- ratioPass = (ratio >= livenessRatio) (ServiceStakingBase-flatten.sol#735)
+ServiceStakingBase._calculateStakingRewards() (ServiceStakingBase-flatten.sol#748-810) uses timestamp for comparisons
+	Dangerous comparisons:
+	- block.timestamp - tsCheckpointLast >= livenessPeriod && lastAvailableRewards > 0 (ServiceStakingBase-flatten.sol#762)
+	- ts > serviceCheckpoint (ServiceStakingBase-flatten.sol#789)
+ServiceStakingBase.checkpoint() (ServiceStakingBase-flatten.sol#880-997) uses timestamp for comparisons
+	Dangerous comparisons:
+	- serviceInactivity[i_scope_1] > maxAllowedInactivity (ServiceStakingBase-flatten.sol#969)
+ServiceStakingBase.unstake(uint256) (ServiceStakingBase-flatten.sol#1001-1067) uses timestamp for comparisons
+	Dangerous comparisons:
+	- ts <= maxAllowedInactivity && availableRewards > 0 (ServiceStakingBase-flatten.sol#1014)
+ServiceStakingBase.getServiceStakingState(uint256) (ServiceStakingBase-flatten.sol#1107-1114) uses timestamp for comparisons
+	Dangerous comparisons:
+	- sInfo.inactivity > maxAllowedInactivity (ServiceStakingBase-flatten.sol#1109)
+	- sInfo.tsStart > 0 (ServiceStakingBase-flatten.sol#1111)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#block-timestamp
+
+Notes: false positive
+INFO:Detectors:
+ServiceStakingBase.stake(uint256) (ServiceStakingBase-flatten.sol#628-706) has a high cyclomatic complexity (13).
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#cyclomatic-complexity
+INFO:Detectors:
+ERC721._burn(uint256) (ServiceStakingBase-flatten.sol#300-315) is never used and should be removed
+ERC721._mint(address,uint256) (ServiceStakingBase-flatten.sol#285-298) is never used and should be removed
+ERC721._safeMint(address,uint256) (ServiceStakingBase-flatten.sol#321-330) is never used and should be removed
+ERC721._safeMint(address,uint256,bytes) (ServiceStakingBase-flatten.sol#332-345) is never used and should be removed
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#dead-code
+
+Notes: false positive
+INFO:Detectors:
+Variable ERC721._ownerOf (ServiceStakingBase-flatten.sol#159) is not in mixedCase
+Variable ERC721._balanceOf (ServiceStakingBase-flatten.sol#161) is not in mixedCase
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#conformance-to-solidity-naming-conventions
+
+Notes: false positive
+INFO:Detectors:
+ERC721 (ServiceStakingBase-flatten.sol#134-346) does not implement functions:
+	- ERC721.tokenURI(uint256) (ServiceStakingBase-flatten.sol#153)
+ServiceStakingBase (ServiceStakingBase-flatten.sol#468-1141) does not implement functions:
+	- ServiceStakingBase._withdraw(address,uint256) (ServiceStakingBase-flatten.sol#622)
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#unimplemented-functions
+
+Notes: false positive
+INFO:Detectors:
+ServiceStakingBase.balance (ServiceStakingBase-flatten.sol#540) should be constant 
+Reference: https://github.com/crytic/slither/wiki/Detector-Documentation#state-variables-that-could-be-declared-constant
+INFO:Detectors:
+In a function ServiceStakingBase.stake(uint256) (ServiceStakingBase-flatten.sol#628-706) variable ServiceStakingBase.agentIds (ServiceStakingBase-flatten.sol#546) is read multiple times
+In a function ServiceStakingBase._evict(uint256[],uint256[],uint256) (ServiceStakingBase-flatten.sol#816-872) variable ServiceStakingBase.setServiceIds (ServiceStakingBase-flatten.sol#550) is read multiple times
+In a function ServiceStakingBase.checkpoint() (ServiceStakingBase-flatten.sol#880-997) variable ServiceStakingBase.mapServiceInfo (ServiceStakingBase-flatten.sol#548) is read multiple times
+Reference: https://github.com/pessimistic-io/slitherin/blob/master/docs/multiple_storage_read.md
+INFO:Slither:. analyzed (6 contracts with 108 detectors), 30 result(s) found

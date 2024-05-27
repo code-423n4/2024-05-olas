@@ -1,0 +1,4 @@
+audits/*
+coverage*
+integrations/*
+lib/*
