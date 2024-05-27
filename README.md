@@ -1,6 +1,6 @@
 # Olas audit details
-- Total Prize Pool: $75,500 in USDC
-  - HM awards: $57,000 in USDC
+- Total Prize Pool: $90,500 in USDC
+  - HM awards: $72,000 in USDC
   - QA awards: $3,000 in USDC
   - Judge awards: $9,000 in USDC
   - Validator awards: $6,000 in USDC
