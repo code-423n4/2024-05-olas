@@ -212,18 +212,13 @@ A brief overview of registries can be found here https://github.com/valory-xyz/a
 
 ## 
 This repository will follows the standard [`Hardhat`](https://hardhat.org/tutorial/) development process.
-- The code is written on Solidity starting from version `0.8.18`.
+- The code is written on Solidity starting from version `0.8.15`.
 - The standard versions of Node.js along with Yarn are required to proceed further (confirmed to work with Yarn `1.22.19` and npm `10.1.0` and node `v18.6.0`);
 - [`Foundry`](https://book.getfoundry.sh/) is required to run the foundry tests.
 
 ### Install the dependencies
-The project has submodules to get the dependencies. Make sure you run `git clone --recursive` or init the submodules yourself.
-```
-git clone https://github.com/code-423n4/2024-05-olas
-git submodule update --init --recursive
-```
-The dependency list is managed by the `package.json` file, and the setup parameters are stored in the `hardhat.config.js` file.
-Simply run the following command to install the project:
+Each relevant directory has the `package.json` file managing dependencies, and the setup parameters are stored in the corresponding `hardhat.config.js` file.
+Simply run the following command to install each of the projects (`cd governance / registries / tokenomics`):
 ```
 yarn install
 ```
@@ -237,6 +232,40 @@ test
 ```
 
 ### Compile the code and run
+#### Governance
+```
+cd governance
+```
+Compile the code:
+```
+npx hardhat compile
+```
+Run tests with Hardhat:
+```
+npx hardhat test
+```
+
+#### Registries
+```
+cd registries
+```
+Compile the code:
+```
+npx hardhat compile
+```
+Run tests with Hardhat:
+```
+npx hardhat test
+```
+Run tests with Foundry:
+```
+forge test --hh -vv
+```
+
+#### Tokenomics
+```
+cd tokenomics
+```
 Compile the code:
 ```
 npm run compile
@@ -249,16 +278,20 @@ Run tests with Foundry:
 ```
 forge test --hh -vv
 ```
-> [!NOTE]
-> Forge tests don't run by default, 
 
- For them to run in the corresponding folder (registries / tokenomics) one needs to go in the folder and initialize an empty  git repo with the `git init` command, i.e.
+#### Foundry testing
+> [!NOTE]
+> Forge tests don't run by default! 
+
+ For them to run in the corresponding folder (registries / tokenomics) one needs to go in the folder and initialize an empty
+ git repo with the `git init` command, i.e. for registries:
 ```sh
 cd registries
 git init
 forge test --hh -vvv
 ```
-Run tests coverage
+
+Run tests coverage for each of the corresponding folder (governance / registries / tokenomics)
 ```
 npx hardhat coverage
 ```
