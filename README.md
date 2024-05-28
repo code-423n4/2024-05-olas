@@ -196,13 +196,6 @@ Here some examples.
 - DAO members decisions are always assumed to be honest
 - DAO executed vote are always assumed to be honest
 
-✅ SCOUTS: Please format the response above 👆 using the template below👇
-
-| Role                                | Description                       |
-| --------------------------------------- | ---------------------------- |
-| Owner                          | Has superpowers                |
-| Administrator                             | Can change fees                       |
-
 ## Describe any novel or unique curve logic or mathematical models implemented in the contracts:
 
 Olas staking is a novel staking mechanism that can spawn desirable autonomous AI agent economies in crypto and beyond. The smart contracts in scope of this audit are essential to enable Olas staking. Details on Olas staking can be found in https://staking.olas.network/poaa-whitepaper.pdf. 
