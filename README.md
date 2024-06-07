@@ -295,9 +295,9 @@ Run tests coverage for each of the corresponding folder (governance / registries
 ```
 npx hardhat coverage
 ```
-![Screenshot from 2024-05-27 23-52-57](https://github.com/code-423n4/2024-05-olas/assets/65364747/def2d356-7503-4a73-8b6f-50e1578bac2c)
-![Screenshot from 2024-05-28 00-05-33](https://github.com/code-423n4/2024-05-olas/assets/65364747/0c703406-1a61-48c7-be3f-f903bb3fd05f)
-![Screenshot from 2024-05-28 00-15-47](https://github.com/code-423n4/2024-05-olas/assets/65364747/9e2a9928-7b95-4fba-973b-588fab75076a)
+![Screenshot from 2024-05-27 23-52-57](https://github.com/code-423n4/2024-05-olas/blob/main/screenshot_1.png?raw=true)
+![Screenshot from 2024-05-28 00-05-33](https://github.com/code-423n4/2024-05-olas/blob/main/screenshot_2.png?raw=true)
+![Screenshot from 2024-05-28 00-15-47](https://github.com/code-423n4/2024-05-olas/blob/main/screenshot_3.png?raw=true)
 
 
 ## Miscellaneous
