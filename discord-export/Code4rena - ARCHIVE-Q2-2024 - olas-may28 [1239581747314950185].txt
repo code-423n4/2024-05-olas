@@ -1,0 +1,466 @@
+==============================================================
+Guild: Code4rena
+Channel: ARCHIVE-Q2-2024 / olas-may28
+==============================================================
+
+[05/27/2024 13:07] itsmetechjay
+👋 Hello and welcome to the audit channel for the $90,500 in USDC **Olas **audit!
+
+📆 Audit opens Tuesday, 28 May 2024 20:00 (20:00 UTC) and runs through Tuesday, 18 June 2024 20:00 (20:00 UTC) (21 days).
+
+Please give a warm welcome to the **Olas** team, particularly @kupermind, @david_enim, @Pi, and @andreyleb, who will be available for questions either here in the channel or via a PRIVATE thread in the CET timezone. 
+
+We'll be posting relevant links, documentation, etc. here, so if you intend to participate in this audit, consider enabling notifications for this channel. 🐺 ⏰
+
+Audit Page: https://code4rena.com/audits/2024-05-olas
+
+{Reactions}
+🫡 (4) 
+
+[05/28/2024 20:02] C4 (pinned)
+**Automated Findings / Publicly Known Issues**
+
+Reminder: all [Automated Findings / Publicly Known Issues](https://github.com/code-423n4/2024-05-olas?tab=readme-ov-file#automated-findings--publicly-known-issues) are out of scope and ineligible for awards.
+
+
+[05/28/2024 20:05] itsmetechjay
+Pinned a message.
+
+
+[05/28/2024 20:05] itsmetechjay (pinned)
+🤖 **Documentation bot assistance:** For general questions about the codebase, give our documentation bot a try, by tagging @Docs Wolf in any thread (private or public) and asking your question. The bot will make its best attempt to answer based on the codebase and documentation, and link you to relevant resources.
+
+
+[05/28/2024 20:05] itsmetechjay
+Pinned a message.
+
+
+[05/28/2024 20:20] rouhsamad
+hey there
+
+
+[05/28/2024 23:01] georgefalcon_
+A warm welcome to the Olas team @kupermind , @david_enim , @Pi and @andreyleb 🫡
+
+{Reactions}
+🙏 (2) 🫡 (2) 
+
+[05/29/2024 03:06] 0xshaheen
+Hi. I'm getting some cloning issues, technically checkout issue
+```js
+$ git clone https://github.com/code-423n4/2024-05-olas.git
+Cloning into '2024-05-olas'...
+remote: Enumerating objects: 3049, done.
+remote: Counting objects: 100% (206/206), done.
+remote: Compressing objects: 100% (175/175), done.
+remote: Total 3049 (delta 31), reused 147 (delta 16), pack-reused 2843
+Receiving objects: 100% (3049/3049), 89.60 MiB | 4.04 MiB/s, done.
+Resolving deltas: 100% (853/853), done.
+error: invalid path 'tokenomics/abis/aux/GovernorOLAS.json'
+fatal: unable to checkout working tree
+warning: Clone succeeded, but checkout failed.
+You can inspect what was checked out with 'git status'
+and retry with 'git restore --source=HEAD :/'
+```
+
+
+[05/29/2024 03:07] 0xshaheen
+everyone able to clone successfully?
+
+
+[05/29/2024 03:35] saifgaber
+the naming of the folder aux is causing this issue, renaming it should solve it.
+
+{Reactions}
+chefskiss 
+
+[05/29/2024 03:37] saifgaber
+https://learn.microsoft.com/en-us/windows/win32/fileio/naming-a-file
+Do not use the following reserved names for the name of a file:
+
+CON, PRN, **AUX**,
+
+{Reactions}
+👍 (3) 🤯 (2) 
+
+[05/29/2024 03:43] saifgaber
+shouldn't be a problem on linux though
+
+
+[05/29/2024 08:25] _givn
+Hi all, anyone else having issues when trying to run `npx hardhat compile` in the `tokenomics` project? I'm on Mac M1 and experiencing the following error:
+`Error HH404: File solmate/tokens/ERC20.sol, imported from lib/zuniswapv2/src/ZuniswapV2Pair.sol, not found.`
+
+The other 2 projects are fine - compilation and tests run without any trouble.
+
+
+[05/29/2024 08:27] pfapostol
+try running `yarn install` first
+
+
+[05/29/2024 08:28] _givn
+Already did that, also tried installing solmate in `tokenomics`. Both didn't work.
+
+
+[05/29/2024 08:28] kupermind
+As per instructions scpecifically for tokenomics you compile with:
+`npm run compile`
+
+{Reactions}
+👌 (2) 
+
+[05/29/2024 08:28] kupermind
+READ THE README PLEASE
+
+{Reactions}
+👆 (3) 
+
+[05/29/2024 08:29] _givn
+It worked, thanks!
+
+
+[05/29/2024 09:10] evokid
+Very excited for this audit, I hope I do well through it! 🫡
+
+{Reactions}
+✅ (2) 
+
+[05/29/2024 09:16] 0xshaheen
+Thanks man, you correctly pointed it out. I thought it was an issue with the files in the folder. I just forked the codebase and deleted the aux folder and then it cloned successfully. Thanks again!
+
+{Reactions}
+👍🏼 
+
+[05/29/2024 11:31] omark1_
+Is this the same codebase that was audited before on c4?
+
+
+[05/29/2024 19:28] kartoonjoy (pinned)
+Wardens, the analyzer report for Olas is now in the repo. Thanks!
+
+{Reactions}
+thankyou (3) 
+
+[05/29/2024 19:28] kartoonjoy
+Pinned a message.
+
+
+[05/29/2024 21:51] ob1.kenobi
+welp, there goes my medium 🤣
+
+
+[05/31/2024 13:21] kartik_giri_47538
+Hey @kupermind can you tell me what non-evm chain you are deploying contracts to?
+
+
+[05/31/2024 13:24] 0xshaheen
+From the docs/Readme, it looks like only Solana is the non-evm chain olas supports rn 
+
+> Chains the protocol will be deployed on:
+> Ethereum, Arbitrum, Base, Optimism, Polygon, OtherGnosis, Celo, Solana
+
+{Reactions}
+💯 
+
+[05/31/2024 13:25] kartik_giri_47538
+Yea thanks
+
+{Reactions}
+👍 
+
+[05/31/2024 13:26] kupermind
+Thanks for answering
+
+{Reactions}
+🫡 
+
+[05/31/2024 13:35] kartik_giri_47538
+Hey @kupermind can you please check your DM.
+
+
+[05/31/2024 13:40] kupermind
+FYI please no friend requests, just DM requests
+
+{Reactions}
+🫡 
+
+[05/31/2024 14:22] _givn
+Let me see if I understand correctly the Staking contract lifecycle:
+1. Anyone can create a staking contract via `StakingFactory`, as long as its configured within certain bounds.
+2. Services can be staked, allowing owners to claim rewards
+3. Services can be unstaked by their respective owners.
+
+Is this more or less the gist of it?
+
+
+[05/31/2024 14:40] kupermind
+That's correct. In order to earn rewards, services must achieve certain activity KPIs.
+
+{Reactions}
+👌 
+
+[05/31/2024 17:59] eme0242
+Depository is out of scope?
+
+
+[06/01/2024 15:11] saifgaber
+Yes.
+
+
+[06/01/2024 15:36] 0xshaheen
+Every In-scope contract will be deployed on all L1s & L2s. Correct?
+
+{Reactions}
+💯 (3) 
+
+[06/01/2024 15:53] mussucal
+What is the purpose of retainer ? Since, it is just like any other nominee address, who votes for it and why ?
+
+
+[06/01/2024 16:06] kupermind
+It's the mans to slash the inflation - to get it back to staking, either because the user thinks there are no interesting staking contracts, or because they think the allocation for staking is too much, thus defer it
+
+
+[06/01/2024 16:06] kupermind
+Look into the `retain()` function - all of its accumulated amount is returned back to the tokenomics
+
+
+[06/01/2024 16:08] mussucal
+👍
+
+
+[06/04/2024 19:44] hex_panda
+@kupermind could you please check your DMs? 🙏🙏🙏
+
+{Reactions}
+🙏 
+
+[06/05/2024 11:24] kupermind (pinned)
+Everyone - I'm getting a lot of questions that are explained in great detail in each of the governance / registries / tokenomics `docs` folder. Please go through them first.
+
+{Reactions}
+💯 (3) 
+
+[06/05/2024 13:56] kartoonjoy
+Pinned a message.
+
+
+[06/05/2024 14:37] 0xtotem
+Started a thread.
+
+
+[06/05/2024 14:37] kartik_giri_47538
+Hey @kupermind can you please check ur DMs 🙂
+
+
+[06/09/2024 20:53] mylifechangefast.eth_70767
+@kupermind please check private thread
+
+
+[06/12/2024 01:56] comradektg
+Hi @kupermind , can you check your DM?
+
+
+[06/12/2024 12:42] comradektg
+@kupermind  can you accept my friend request and DM?
+
+
+[06/12/2024 12:46] kupermind
+I accepted your DM request. As I've mentioned earlier - no friend requests!
+
+You have just messaged a sticker, I don't know what to reply to it?
+
+{Reactions}
+hi5 (2) 😂 (6) 
+
+[06/12/2024 12:49] comradektg
+Sent you a DM
+
+
+[06/18/2024 20:02] C4
+**🚨 AUDIT ALERT**
+
+@🐺Wardens The **Olas** audit is now closed! Huge thanks to everyone who participated 🔍, whether you submitted a finding or not.
+
+What's next: The sponsor team and judge will review the findings over the next couple of weeks. Feel free to ping a Civics-Admin if you have questions along the way!
+
+
+[06/18/2024 21:34] mylifechangefast.eth_70767
+Olas audit was tuff:hi5:
+
+
+[06/18/2024 21:35] mylifechangefast.eth_70767
+@kupermind you are too good!!!
+
+{Reactions}
+😅 💯 (2) 
+
+[06/19/2024 00:37] varun2791
+How many submissions?
+
+
+[06/19/2024 04:05] kupermind
+Thank you all for your participation!
+
+{Reactions}
+🫡 
+
+[06/19/2024 04:05] kupermind
+There are 315 submissions
+
+{Reactions}
+👍 (4) ❤️ 
+
+[07/03/2024 07:23] matin6517
+Can you please provide an update about the judging process?
+
+
+[07/03/2024 08:54] varun2791
+It's in PJQA
+
+
+[07/03/2024 08:59] matin6517
+Thanks a lot🙏
+
+
+[07/09/2024 20:31] thebrittfactor
+🤑 🎉  Awards for **Olas**:
+
+$36,262.11 USDC » @EV_om 
+$11,394.20 USDC » @Varun_05 
+$7,024.78 USDC » @fyamf 
+$6,493.82 USDC » @haxatron 
+$3,226.21 USDC » @ZanyBonzy 
+$2,894.33 USDC » @0xSwahili 
+$1,602.32 USDC » @ArsenLupin 
+$1,481.24 USDC » @CodeCipher 
+$1,230.09 USDC » @marchev 
+$1,139.41 USDC » @zraxx 
+$302.17 USDC » @Limbooo 
+$232.44 USDC » @AvantGard 
+$232.44 USDC » @Lin 
+$232.44 USDC » @Sparrow 
+$232.44 USDC » @c0pp3rscr3w3r 
+$164.65 USDC » @Emmanuel 
+$164.65 USDC » SBSecurity (@blckhv and @Slavcheww) 
+$164.65 USDC » @givn 
+$164.65 USDC » @peanuts 
+$51.57 USDC » @0xBugSlayer 
+$51.57 USDC » @JanuaryPersimmon2024 
+$51.57 USDC » @MSaptarshi 
+$51.57 USDC » @ntiCLOCK 
+$51.57 USDC » @biakia 
+$51.57 USDC » @rbserver 
+$51.57 USDC » @yotov721 
+
+🏁 Findings summary
+--------------------------------------
+2 High risk findings
+20 Med risk findings
+77 wardens contributed
+
+Top Hunter: EV_om
+Top Gatherer: EV_om
+Top QA report: EV_om
+
+Awards will be distributed on Polygon within the next week. Congratulations all!  💸 💸 💸
+
+*Note: If you participated in this audit and don’t see your name on this list, please wait until the report is published and the findings repo is made public to check on your submissions.*
+
+{Reactions}
+chefskiss (4) 🎉 (4) ❤️ 
+
+[07/09/2024 20:41] marchev
+@EV_om congrats! 🔥
+
+
+[07/09/2024 20:41] marchev
+f*ckin' killed it 💀
+
+
+[07/09/2024 20:41] haxatron1
+Congrats @EV_om :chefskiss: 
+
+Although you took away all my solo findings :pepemcdonalds:
+
+
+[07/09/2024 20:42] yotov721
+Well, that was fast, maybe I should have spend more time of this contest. Congratz all 🎉
+
+
+[07/09/2024 20:42] kirobrejka_80610
+"solo"😭
+
+
+[07/09/2024 20:43] marchev
+Hey, that dude @EV_om stole a solo medium from me as well! :pepesad:
+
+{Reactions}
+kewk 
+
+[07/09/2024 20:44] marchev
+He even dared to report it as a QA 💀 
+Hurt my feelings fr
+
+{Reactions}
+pepehehe (2) 😂 (3) 
+
+[07/09/2024 20:53] haxatron1
+My solo high and 2 solo mediums was gone to this man
+
+{Reactions}
+😬 (2) 🥶 (2) 
+
+[07/09/2024 20:54] haxatron1
+You experienced nothing 🤣
+
+
+[07/09/2024 20:57] 0xjuancito
+https://tenor.com/view/giga-chad-gif-23143840
+
+{Embed}
+https://tenor.com/view/giga-chad-gif-23143840
+Code4rena - ARCHIVE-Q2-2024 - olas-may28 [1239581747314950185].txt_Files/giga-chad-F4683.png
+
+
+[07/09/2024 20:57] 0xjuancito
+Congrats @EV_om !
+
+{Reactions}
+chadJam (2) 🗿 
+
+[07/09/2024 21:23] ev_om
+You guys are the ones killing me now 😂😂
+
+
+[07/09/2024 21:24] ev_om
+Thank you all 🫶 Been an honor to compete with you guys
+
+{Reactions}
+❤️ (2) 👏 
+
+[07/09/2024 21:24] ev_om
+Congrats everyone 🎉
+
+{Reactions}
+🔥 (10) 💜 (2) 
+
+[07/10/2024 08:11] hex_panda
+Thank you, guys!
+
+
+[07/10/2024 08:11] hex_panda
+🫶🫶🫶
+
+
+[07/19/2024 02:42] itsmetechjay
+ℹ️ This channel is pending archive.   As a result, any private threads will be permanently deleted on Friday, 26 July 2024.  Please make sure to grab anything you might need before then.
+
+
+[07/29/2024 16:09] itsmetechjay
+ℹ️ Reminder: this channel will be deleted after 24 hours.
+
+
+==============================================================
+Exported 77 message(s)
+==============================================================
